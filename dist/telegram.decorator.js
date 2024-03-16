@@ -18,7 +18,7 @@ function TelegramService() {
                         for (const listener of listeners) {
                             const msgKey = Reflect.getMetadata('msgKey', constructor.prototype, listener);
                             if (!((_b = (_a = message.text) === null || _a === void 0 ? void 0 : _a.toLowerCase()) === null || _b === void 0 ? void 0 : _b.includes(msgKey.toLowerCase())))
-                                return;
+                                continue;
                             const fn = constructor.prototype[listener];
                             const res = await fn.bind(this)(message, telegram_module_1.TelegramModule.botInstance.sendMessage.bind(telegram_module_1.TelegramModule.botInstance));
                             if (res) {
