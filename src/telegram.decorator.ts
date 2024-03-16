@@ -24,7 +24,7 @@ export function TelegramService(): any {
               );
 
               if (!message.text?.toLowerCase()?.includes(msgKey.toLowerCase()))
-                return;
+                continue;
               const fn = constructor.prototype[listener];
               const res = await fn.bind(this)(
                 message,
