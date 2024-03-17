@@ -11,11 +11,11 @@ exports.TelegramModule = exports.TELEGRAM_BOT_TOKEN = void 0;
 const common_1 = require("@nestjs/common");
 exports.TELEGRAM_BOT_TOKEN = 'BOT_TOKEN';
 let TelegramModule = TelegramModule_1 = class TelegramModule {
-    static forRoot(telegramApiKey) {
+    static forRoot(telegramApiKey, poll = true) {
         // eslint-disable-next-line @typescript-eslint/no-var-requires
         const _telegram = require('node-telegram-bot-api');
         TelegramModule_1.botInstance = new _telegram(telegramApiKey, {
-            polling: true,
+            polling: poll,
         });
         return {
             module: TelegramModule_1,
