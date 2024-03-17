@@ -8,11 +8,11 @@ export const TELEGRAM_BOT_TOKEN = 'BOT_TOKEN';
 })
 export class TelegramModule {
   public static botInstance: telegram;
-  public static forRoot(telegramApiKey: string): DynamicModule {
+  public static forRoot(telegramApiKey: string, poll = true): DynamicModule {
     // eslint-disable-next-line @typescript-eslint/no-var-requires
     const _telegram = require('node-telegram-bot-api');
     TelegramModule.botInstance = new _telegram(telegramApiKey, {
-      polling: true,
+      polling: poll,
     });
     return {
       module: TelegramModule,
